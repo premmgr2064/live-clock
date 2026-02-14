@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Clock</title>
+    <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:black;
+            font-family:Arial;
+        }
+
+        #clock{
+            font-size:60px;
+            color:#00ffcc;
+            background:#222;
+            padding:20px 40px;
+            border-radius:10px;
+            box-shadow:0 0 20px #00ffcc;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="clock">00:00:00</div>
+
+    <script>
+        function updateClock(){
+            let now = new Date();
+
+            let h = now.getHours();
+            let m = now.getMinutes();
+            let s = now.getSeconds();
+
+            h = (h<10?"0":"") + h;
+            m = (m<10?"0":"") + m;
+            s = (s<10?"0":"") + s;
+
+            document.getElementById("clock").innerText = h+":"+m+":"+s;
+        }
+
+        setInterval(updateClock,1000);
+        updateClock();
+    </script>
+
+</body>
+</html>
